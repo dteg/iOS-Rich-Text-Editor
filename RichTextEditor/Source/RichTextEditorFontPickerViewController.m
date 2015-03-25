@@ -27,13 +27,8 @@
 
 #import "RichTextEditorFontPickerViewController.h"
 
-@interface RichTextEditorFontPickerViewController()
-
-- (void)addFontToRecentlyUsedList:(NSString*)fontName;
-
-@end
-
 @implementation RichTextEditorFontPickerViewController
+int GlobalSize = 5;
 
 - (void)viewDidLoad
 {
@@ -86,10 +81,13 @@
     
     self.contentSizeForViewInPopover = CGSizeMake(250, 400);
 #endif
+    _MRUArray = [[NSMutableArray alloc] initWithCapacity:GlobalSize];
     
 }
 
 #pragma mark - IBActions -
+
+
 
 - (void)closeSelected:(id)sender
 {
@@ -98,72 +96,32 @@
 
 #pragma mark - UITableView Delegate & Datasrouce -
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 2;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0){
-        return @"Recently Used";
-    }
-    else{
-        return @" ";
-    }
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0){
-        return [self.MRUArray count];
-    }
-    else if (section == 1){
-        return self.fontNames.count;
-    }
-    else{
-        return 0;
-    }
-    
+    return self.fontNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"FontSizeCell";
+    
+    NSString *fontName = [self.fontNames objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    NSString *fontName;
     
-    if (indexPath.section == 0){
-        if (self.MRUArray){
-            fontName = [self.MRUArray objectAtIndex:indexPath.row];
-            if (!cell){
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-            }
-            cell.textLabel.text = fontName;
-            cell.textLabel.font = [UIFont fontWithName:fontName size:16];
-            return cell;
-        }
-    }
-    else{
-        
-        fontName = [self.fontNames objectAtIndex:indexPath.row];
-        
-        if (!cell)
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
-        cell.textLabel.text = fontName;
-        cell.textLabel.font = [UIFont fontWithName:fontName size:16];
-        return cell;
-    }
+    if (!cell)
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
+    cell.textLabel.text = fontName;
+    cell.textLabel.font = [UIFont fontWithName:fontName size:16];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *fontName = [self.fontNames objectAtIndex:indexPath.row];
+    [self enqueue:(fontName)];
     [self.delegate richTextEditorFontPickerViewControllerDidSelectFontWithName:fontName];
-    [self addFontToRecentlyUsedList:fontName];
-    // call addFontToRecentlyUsedList:fontName method to add the selected font name to the list
+    NSLog(@"array: %@", _MRUArray);
 }
 
 #pragma mark - Setter & Getter -
@@ -181,18 +139,20 @@
     return _tableview;
 }
 
-- (void)addFontToRecentlyUsedList:(NSString*)fontName{
-    // Update array of recently used fonts
-    // Remove the font that was used the least recently
-    // Then add fontName to the back of the list
-    
-    // Use a protocol to access the array, which lives in the parent view
-    if (!self.MRUArray){
-        self.MRUArray = [[NSMutableArray alloc] initWithCapacity: 5];
-    }
-    if ([self.MRUArray count] < 5){
-        [self.MRUArray addObject:fontName];
-    }
+
+//this is just temporary for the queue
+- (void) dequeue
+{
+    [_MRUArray removeObjectAtIndex:0];
 }
 
+-(void) enqueue:(id)NewObject
+{
+    [_MRUArray addObject:NewObject];
+}
+
+
 @end
+
+
+
