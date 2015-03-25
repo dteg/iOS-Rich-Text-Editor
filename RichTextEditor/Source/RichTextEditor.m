@@ -36,7 +36,7 @@
 #define RICHTEXTEDITOR_TOOLBAR_HEIGHT 40
 // removed first tab in lieu of using indents for bulleted lists
 #define BULLET_STRING @"•\t"
-#define LEVELS_OF_UNDO 10
+#define LEVELS_OF_UNDO 10000
 
 @interface RichTextEditor() <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>
 @property (nonatomic, strong) RichTextEditorToolbar *toolBar;

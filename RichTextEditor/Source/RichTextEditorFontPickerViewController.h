@@ -34,5 +34,8 @@
 @property (nonatomic, weak) id <RichTextEditorFontPickerViewControllerDataSource> dataSource;
 @property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) NSArray *fontNames;
-
+@property (nonatomic, strong) NSMutableArray *MRUArray;
+-(void) dequeue;
+-(void)enqueue:(id)NewObject;
+extern int GlobalSize;
 @end

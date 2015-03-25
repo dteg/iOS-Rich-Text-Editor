@@ -28,6 +28,7 @@
 #import "RichTextEditorFontPickerViewController.h"
 
 @implementation RichTextEditorFontPickerViewController
+int GlobalSize = 5;
 
 - (void)viewDidLoad
 {
@@ -80,10 +81,13 @@
     
 	self.contentSizeForViewInPopover = CGSizeMake(250, 400);
 #endif
+    _MRUArray = [[NSMutableArray alloc] initWithCapacity:GlobalSize];
 
 }
 
 #pragma mark - IBActions -
+
+
 
 - (void)closeSelected:(id)sender
 {
@@ -115,7 +119,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *fontName = [self.fontNames objectAtIndex:indexPath.row];
+    [self enqueue:(fontName)];
 	[self.delegate richTextEditorFontPickerViewControllerDidSelectFontWithName:fontName];
+    NSLog(@"array: %@", _MRUArray);
 }
 
 #pragma mark - Setter & Getter -
@@ -133,4 +139,20 @@
 	return _tableview;
 }
 
+
+//this is just temporary for the queue
+- (void) dequeue
+{
+    [_MRUArray removeObjectAtIndex:0];
+}
+
+-(void) enqueue:(id)NewObject
+{
+    [_MRUArray addObject:NewObject];
+}
+
+
 @end
+
+
+

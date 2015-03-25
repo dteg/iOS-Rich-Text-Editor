@@ -60,9 +60,9 @@ typedef enum{
 	RichTextEditorFeatureParagraphFirstLineIndentation	= 1 << 13,
 	RichTextEditorFeatureBulletList						= 1 << 14,
 	RichTextEditorTextAttachment						= 1 << 15,
-	RichTextEditorFeatureAll							= 1 << 16,
-    RichTextEditorFeatureUndoRedo						= 1 << 17,
-    RichTextEditorFeatureDismissKeyboard				= 1 << 18
+    RichTextEditorFeatureUndoRedo						= 1 << 16,
+    RichTextEditorFeatureDismissKeyboard				= 1 << 17,
+    RichTextEditorFeatureAll							= 1 << 18
 }RichTextEditorFeature;
 
 @protocol RichTextEditorToolbarDelegate <UIScrollViewDelegate>

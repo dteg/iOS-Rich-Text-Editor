@@ -49,7 +49,6 @@
 		1583893B1735A5D7006DE713 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389121735A5D7006DE713 /* UIKit.framework */; };
 		1583893C1735A5D7006DE713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389141735A5D7006DE713 /* Foundation.framework */; };
 		158389441735A5D7006DE713 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 158389421735A5D7006DE713 /* InfoPlist.strings */; };
-		158389471735A5D7006DE713 /* RichTextEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 158389461735A5D7006DE713 /* RichTextEditorTests.m */; };
 		1583895A1735D7F4006DE713 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158389591735D7F4006DE713 /* CoreText.framework */; };
 		15B6E20F17A4C2820015867C /* RichTextEditorToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B6E20E17A4C2820015867C /* RichTextEditorToggleButton.m */; };
 		D28387061A7EE06F0093AF3E /* PSPDFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D28387051A7EE06F0093AF3E /* PSPDFTextView.m */; };
@@ -184,11 +183,9 @@
 		1583892E1735A5D7006DE713 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		158389301735A5D7006DE713 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		158389311735A5D7006DE713 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		158389381735A5D7006DE713 /* RichTextEditorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = RichTextEditorTests.octest; path = RichTextEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		158389381735A5D7006DE713 /* RichTextEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RichTextEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		158389411735A5D7006DE713 /* RichTextEditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RichTextEditorTests-Info.plist"; sourceTree = "<group>"; };
 		158389431735A5D7006DE713 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		158389451735A5D7006DE713 /* RichTextEditorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RichTextEditorTests.h; sourceTree = "<group>"; };
-		158389461735A5D7006DE713 /* RichTextEditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorTests.m; sourceTree = "<group>"; };
 		158389591735D7F4006DE713 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		15B6E20D17A4C2820015867C /* RichTextEditorToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextEditorToggleButton.h; sourceTree = "<group>"; };
 		15B6E20E17A4C2820015867C /* RichTextEditorToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RichTextEditorToggleButton.m; sourceTree = "<group>"; };
@@ -428,7 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				1583890E1735A5D7006DE713 /* RichTextEditor.app */,
-				158389381735A5D7006DE713 /* RichTextEditorTests.octest */,
+				158389381735A5D7006DE713 /* RichTextEditorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -476,8 +473,6 @@
 		1583893F1735A5D7006DE713 /* RichTextEditorTests */ = {
 			isa = PBXGroup;
 			children = (
-				158389451735A5D7006DE713 /* RichTextEditorTests.h */,
-				158389461735A5D7006DE713 /* RichTextEditorTests.m */,
 				158389401735A5D7006DE713 /* Supporting Files */,
 			);
 			path = RichTextEditorTests;
@@ -554,7 +549,7 @@
 			);
 			name = RichTextEditorTests;
 			productName = RichTextEditorTests;
-			productReference = 158389381735A5D7006DE713 /* RichTextEditorTests.octest */;
+			productReference = 158389381735A5D7006DE713 /* RichTextEditorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -729,7 +724,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				158389471735A5D7006DE713 /* RichTextEditorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
