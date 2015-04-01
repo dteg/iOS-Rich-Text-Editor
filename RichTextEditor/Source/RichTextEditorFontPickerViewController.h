@@ -30,7 +30,7 @@
 
 @protocol RichTextEditorMRUFontDelegate <NSObject>
 @required
--(void)GetFontList;();
+-(void)GetFontList();
 -AddFont:(NSString*)FontName;
 @end
 
