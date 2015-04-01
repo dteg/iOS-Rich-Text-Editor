@@ -38,7 +38,7 @@
 #define BULLET_STRING @"•\t"
 #define LEVELS_OF_UNDO 10000
 
-@interface RichTextEditor() <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource>
+@interface RichTextEditor() <RichTextEditorToolbarDelegate, RichTextEditorToolbarDataSource, RichTextEditorMRUFontDelegate>
 @property (nonatomic, strong) RichTextEditorToolbar *toolBar;
 
 // Gets set to YES when the user starts changing attributes when there is no text selection (selecting bold, italic, etc)
