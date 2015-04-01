@@ -135,7 +135,7 @@ int GlobalSize = 5;
 {
 	static NSString *cellIdentifier = @"FontSizeCell";
 	
-	NSString *fontName = [self.fontNames objectAtIndex:indexPath.row];
+	NSString *fontName;
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     //NSString *fontName;
     
@@ -154,13 +154,13 @@ int GlobalSize = 5;
         
         fontName = [self.fontNames objectAtIndex:indexPath.row];
 	
-	if (!cell)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-	
-	cell.textLabel.text = fontName;
-	cell.textLabel.font = [UIFont fontWithName:fontName size:16];
-	return cell;
-}
+        if (!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        cell.textLabel.text = fontName;
+        cell.textLabel.font = [UIFont fontWithName:fontName size:16];
+        return cell;
+    }
 
 }
 
