@@ -27,11 +27,11 @@
 
 #import "RichTextEditorFontPickerViewController.h"
 
-@interface RichTextEditorFontPickerViewController()
+/*@interface RichTextEditorFontPickerViewController()
 
 - (void)addFontToRecentlyUsedList:(NSString*)fontName;
 
-@end
+@end*/
 
 @implementation RichTextEditorFontPickerViewController
 int GlobalSize = 5;
@@ -137,7 +137,7 @@ int GlobalSize = 5;
 	
 	NSString *fontName = [self.fontNames objectAtIndex:indexPath.row];
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    NSString *fontName;
+    //NSString *fontName;
     
     if (indexPath.section == 0){
         if (self.MRUArray){
