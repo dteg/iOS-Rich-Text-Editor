@@ -28,6 +28,14 @@
 #import <UIKit/UIKit.h>
 #import "RichTextEditorFontPicker.h"
 
+@protocol RichTextEditorMRUFontDelegate <NSObject>
+@required
+-(void)GetFontList;();
+-AddFont:(NSString*)FontName;
+@end
+
+@property ID<RichTextEditorMRUFontDelegate>delegate;
+
 @interface RichTextEditorFontPickerViewController : UIViewController <RichTextEditorFontPicker, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) id <RichTextEditorFontPickerViewControllerDelegate> delegate;
@@ -38,4 +46,10 @@
 -(void) dequeue;
 -(void)enqueue:(id)NewObject;
 extern int GlobalSize;
+
+
+
+
 @end
+
+
